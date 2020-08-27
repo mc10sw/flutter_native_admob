@@ -12,36 +12,25 @@
             android:background="@android:color/transparent"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_gravity="center"
             android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/ad_attribution"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="left"
-                android:textColor="#FFFFFF"
-                android:textSize="12sp"
-                android:text="@string/ad_label"
-                android:paddingTop="1dp"
-                android:paddingBottom="1dp"
-                android:paddingStart="3dp"
-                android:paddingEnd="3dp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
                 android:orientation="horizontal"
-                android:gravity="center"
-                android:layout_gravity="center"
-                android:layout_marginTop="5dp">
+                android:gravity="center_vertical">
 
                 <ImageView
                     android:id="@+id/ad_icon"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:adjustViewBounds="true"
-                    android:layout_marginEnd="5dp" />
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:background="@drawable/round_radius_44"
+                    android:layout_marginRight="16dp"
+                    android:adjustViewBounds="true" />
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -54,21 +43,38 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:ellipsize="end"
-                        android:lines="1"
+                        android:maxLines="1"
+                        android:maxLength="25"
                         android:textColor="#0000FF"
-                        android:textSize="16sp"
+                        android:textSize="12dp"
                         android:textStyle="bold" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp">
+
+                        <TextView
+                            android:id="@+id/ad_attribution"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:gravity="center"
+                            android:paddingLeft="3dp"
+                            android:paddingRight="3dp"
+                            android:text="@string/ad_label"
+                            android:textColor="#FFFFFF"
+                            android:textSize="10dp" />
 
                         <TextView
                             android:id="@+id/ad_advertiser"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:gravity="bottom"
-                            android:textSize="14sp" />
+                            android:layout_marginLeft="4dp"
+                            android:maxLines="1"
+                            android:ellipsize="end"
+                            android:gravity="center"
+                            android:textSize="10dp" />
 
                         <RatingBar
                             android:id="@+id/ad_stars"
@@ -77,24 +83,27 @@
                             android:layout_height="wrap_content"
                             android:isIndicator="true"
                             android:numStars="5"
-                            android:stepSize="0.5" />
+                            android:stepSize="0.5"
+                            android:visibility="gone"/>
                     </LinearLayout>
                 </LinearLayout>
-
-                <Button
-                    android:id="@+id/ad_call_to_action"
-                    android:layout_width="wrap_content"
-                    android:layout_height="30dp"
-                    android:background="#4CBE99"
-                    android:gravity="center"
-                    android:layout_marginStart="5dp"
-                    android:paddingStart="15dp"
-                    android:paddingTop="0dp"
-                    android:paddingEnd="15dp"
-                    android:paddingBottom="0dp"
-                    android:textColor="@android:color/white"
-                    android:textSize="12sp" />
             </LinearLayout>
+z
+            <Button
+                android:id="@+id/ad_call_to_action"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginRight="16dp"
+                android:background="@drawable/round_radius_4_161616"
+                android:gravity="center"
+                android:maxLength="90"
+                android:maxLines="3"
+                android:ellipsize="end"
+                android:textColor="@android:color/white"
+                android:textSize="14dp"
+                android:textStyle="bold" />
         </LinearLayout>
     </com.google.android.gms.ads.formats.UnifiedNativeAdView>
 </merge>

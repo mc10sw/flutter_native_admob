@@ -13,7 +13,7 @@ import com.google.android.gms.ads.formats.UnifiedNativeAd
 import com.google.android.gms.ads.formats.UnifiedNativeAdView
 
 enum class NativeAdmobType {
-  full, banner
+  full, banner, row
 }
 
 class NativeAdView @JvmOverloads constructor(
@@ -47,6 +47,7 @@ class NativeAdView @JvmOverloads constructor(
     val inflater = LayoutInflater.from(context)
     val layout = when (type) {
       NativeAdmobType.full -> R.layout.native_admob_full_view
+      NativeAdmobType.row -> R.layout.native_admob_row_view
       NativeAdmobType.banner -> R.layout.native_admob_banner_view
     }
     inflater.inflate(layout, this, true)

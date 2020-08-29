@@ -20,7 +20,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="11dp"
+                android:layout_marginLeft="12dp"
                 android:layout_marginRight="12dp"
                 android:orientation="horizontal"
                 android:gravity="start"
@@ -28,11 +28,12 @@
 
                 <ImageView
                     android:id="@+id/ad_icon"
-                    android:layout_width="72dp"
-                    android:layout_height="72dp"
-                    android:background="@drawable/round_radius_4"
-                    android:layout_marginEnd="10dp"
-                    android:adjustViewBounds="true" />
+                    android:layout_width="88dp"
+                    android:layout_height="88dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginEnd="12dp"
+                    android:adjustViewBounds="true"
+                    android:background="@drawable/round_radius_4" />
 
                 <LinearLayout
                     android:layout_width="match_parent"

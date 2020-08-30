@@ -37,13 +37,13 @@ struct NativeAdmobOptions {
     var showMediaContent: Bool = true
     var ratingColor: UIColor = .yellow
     
-    var adLabelTextStyle = NativeTextStyle(fontSize: 12, color: .white, backgroundColor: .fromHex("FFCC66"))
-    var headlineTextStyle = NativeTextStyle(fontSize: 16, color: .black)
-    var advertiserTextStyle = NativeTextStyle(fontSize: 14, color: .black)
-    var bodyTextStyle = NativeTextStyle(fontSize: 12, color: .gray)
-    var storeTextStyle = NativeTextStyle(fontSize: 12, color: .black)
-    var priceTextStyle = NativeTextStyle(fontSize: 12, color: .black)
-    var callToActionStyle = NativeTextStyle(fontSize: 15, color: .white, backgroundColor: .fromHex("#4CBE99"))
+    var adLabelTextStyle = NativeTextStyle(fontSize: 10, color: .white, backgroundColor: .fromHex("FFCC66"))
+    var headlineTextStyle = NativeTextStyle(fontSize: 13, color: .black)
+    var advertiserTextStyle = NativeTextStyle(fontSize: 11, color: .black)
+    var bodyTextStyle = NativeTextStyle(fontSize: 10, color: .gray)
+    var storeTextStyle = NativeTextStyle(fontSize: 10, color: .black)
+    var priceTextStyle = NativeTextStyle(fontSize: 10, color: .black)
+    var callToActionStyle = NativeTextStyle(fontSize: 10, color: .black, backgroundColor: .fromHex("#FFFFFF"))
     
     init() {}
     

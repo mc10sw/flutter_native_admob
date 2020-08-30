@@ -47,7 +47,7 @@ class _MyAppState extends State<MyApp> {
                 adUnitID: _adUnitID,
                 numberAds: 3,
                 controller: _nativeAdController,
-                type: NativeAdmobType.row,
+                type: NativeAdmobType.study,
               ),
             ),
             Container(

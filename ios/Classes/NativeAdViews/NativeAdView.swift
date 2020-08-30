@@ -9,14 +9,14 @@ import UIKit
 import GoogleMobileAds
 
 enum NativeAdmobType: String {
-    case banner, full
+    case banner, study, full
 }
 
 class NativeAdView: GADUnifiedNativeAdView {
     
     let adLabelLbl: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 12)
+        label.font = UIFont.systemFont(ofSize: 10)
         label.textColor = .white
         label.text = "Ad"
         label.numberOfLines = 1
@@ -44,14 +44,14 @@ class NativeAdView: GADUnifiedNativeAdView {
     
     let adHeadLineLbl: UILabel = {
         let label = UILabel()
-        label.font = UIFont.boldSystemFont(ofSize: 16)
+        label.font = UIFont.boldSystemFont(ofSize: 13)
         label.numberOfLines = 1
         return label
     }()
     
     let adAdvertiserLbl: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 14)
+        label.font = UIFont.systemFont(ofSize: 11)
         label.numberOfLines = 1
         return label
     }()
@@ -60,14 +60,14 @@ class NativeAdView: GADUnifiedNativeAdView {
     
     let adBodyLbl: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 12)
+        label.font = UIFont.systemFont(ofSize: 10)
         label.numberOfLines = 2
         return label
     }()
     
     let adPriceLbl: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 12)
+        label.font = UIFont.systemFont(ofSize: 10)
         label.numberOfLines = 1
         label.textAlignment = .right
         return label
@@ -75,7 +75,7 @@ class NativeAdView: GADUnifiedNativeAdView {
     
     let adStoreLbl: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 12)
+        label.font = UIFont.systemFont(ofSize: 10)
         label.numberOfLines = 1
         label.textAlignment = .right
         return label
@@ -83,8 +83,8 @@ class NativeAdView: GADUnifiedNativeAdView {
     
     let callToActionBtn: UIButton = {
         let button = UIButton()
-        button.setBackgroundImage(.from(color: .fromHex("#4CBE99")), for: .normal)
-        button.setTitleColor(.white, for: .normal)
+        button.setBackgroundImage(.from(color: .fromHex("#FFFFFF")), for: .normal)
+        button.setTitleColor(.black, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 15)
         button.contentEdgeInsets = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15)
         button.autoSetDimension(.height, toSize: 30)
@@ -185,6 +185,7 @@ private extension NativeAdView {
         
         switch type {
         case .full: setupFullLayout()
+        case .study: setupStudyLayout()
         case .banner: setupBannerLayout()
         }
     }
@@ -237,6 +238,75 @@ private extension NativeAdView {
                 actionLayout
             ])
         layout.isUserInteractionEnabled = false
+        contentView.addSubview(layout)
+        layout.autoAlignAxis(toSuperviewAxis: .horizontal)
+        layout.autoPinEdge(toSuperviewEdge: .leading)
+        layout.autoPinEdge(toSuperviewEdge: .trailing)
+        layout.autoPinEdge(toSuperviewEdge: .top, withInset: 0, relation: .greaterThanOrEqual)
+        layout.autoPinEdge(toSuperviewEdge: .bottom, withInset: 0, relation: .greaterThanOrEqual)
+    }
+    
+    func setupStudyLayout() {
+        adBodyLbl.numberOfLines = 2
+        adBodyLbl.sizeToFit()
+
+        adIconView.layer.cornerRadius = 8
+        adIconView.layer.masksToBounds = true
+        adIconView.autoSetDimensions(to: CGSize(width: 88, height: 88))
+
+        callToActionBtn.layer.cornerRadius = 4
+        callToActionBtn.layer.masksToBounds = true
+        callToActionBtn.autoSetDimension(.width, toSize: 100)
+        callToActionBtn.autoSetDimension(.height, toSize: 26)
+        callToActionBtn.setContentHuggingPriority(.defaultHigh, for: .horizontal)
+
+        let topView = UIView()
+        addSubview(topView)
+        topView.autoPinEdge(toSuperviewEdge: .top, withInset: 0, relation: .greaterThanOrEqual)
+        topView.autoPinEdge(toSuperviewEdge: .leading, withInset: 0, relation: .greaterThanOrEqual)
+
+        let contentView = UIView()
+        addSubview(contentView)
+        contentView.autoPinEdgesToSuperviewEdges(with: .zero, excludingEdge: .top)
+        contentView.autoPinEdge(.top, to: .bottom, of: topView, withOffset: 0)
+
+        let bodyLayout = StackLayout().spacing(6).direction(.vertical).children([
+            StackLayout().alignItems(UIStackView.Alignment.leading).direction(.horizontal).children([
+                adHeadLineLbl,
+            ]),
+            StackLayout().alignItems(UIStackView.Alignment.leading).direction(.horizontal).children([
+                adBodyLbl,
+            ]),
+            UIView(),
+            StackLayout().direction(.horizontal).children([
+                StackLayout().alignItems(UIStackView.Alignment.center).direction(.vertical).children([
+                    UIView(),
+                    StackLayout().spacing(6).alignItems(UIStackView.Alignment.leading).direction(.horizontal).children([
+                        adLabelView,
+                        StackLayout().spacing(0).direction(.vertical).children([
+                            adAdvertiserLbl,
+                            adRatingView,
+                            UIView()
+                        ]),
+                    ]),
+                    UIView(),
+                ]),
+                UIView(),
+                callToActionBtn,
+            ]),
+        ])
+
+        let layout = StackLayout().spacing(10).alignItems(UIStackView.Alignment.leading).direction(.horizontal).children([
+            adIconView,
+            bodyLayout,
+        ])
+
+        bodyLayout.isLayoutMarginsRelativeArrangement = true
+
+        layout.isLayoutMarginsRelativeArrangement = true
+        layout.layoutMargins = UIEdgeInsets(top: 0, left: 12, bottom: 0, right: 12)
+        layout.isUserInteractionEnabled = false
+
         contentView.addSubview(layout)
         layout.autoAlignAxis(toSuperviewAxis: .horizontal)
         layout.autoPinEdge(toSuperviewEdge: .leading)

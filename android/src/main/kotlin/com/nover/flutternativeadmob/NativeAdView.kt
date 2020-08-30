@@ -6,14 +6,13 @@ import android.graphics.PorterDuff
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.*
 import com.google.android.gms.ads.formats.MediaView
 import com.google.android.gms.ads.formats.UnifiedNativeAd
 import com.google.android.gms.ads.formats.UnifiedNativeAdView
 
 enum class NativeAdmobType {
-  full, banner, row
+  full, banner, study
 }
 
 class NativeAdView @JvmOverloads constructor(
@@ -47,7 +46,7 @@ class NativeAdView @JvmOverloads constructor(
     val inflater = LayoutInflater.from(context)
     val layout = when (type) {
       NativeAdmobType.full -> R.layout.native_admob_full_view
-      NativeAdmobType.row -> R.layout.native_admob_row_view
+      NativeAdmobType.study -> R.layout.native_admob_study_view
       NativeAdmobType.banner -> R.layout.native_admob_banner_view
     }
     inflater.inflate(layout, this, true)

@@ -31,13 +31,13 @@ class NativeTextStyle(
 class NativeAdmobOptions(
     var showMediaContent: Boolean = true,
     var ratingColor: Int = Color.YELLOW,
-    val adLabelTextStyle: NativeTextStyle = NativeTextStyle(12f, Color.WHITE, Color.parseColor("#FFCC66")),
-    val headlineTextStyle: NativeTextStyle = NativeTextStyle(16f, Color.BLACK),
-    val advertiserTextStyle: NativeTextStyle = NativeTextStyle(14f, Color.BLACK),
-    val bodyTextStyle: NativeTextStyle = NativeTextStyle(12f, Color.GRAY),
-    val storeTextStyle: NativeTextStyle = NativeTextStyle(12f, Color.BLACK),
-    val priceTextStyle: NativeTextStyle = NativeTextStyle(12f, Color.BLACK),
-    val callToActionStyle: NativeTextStyle = NativeTextStyle(15f, Color.WHITE, Color.parseColor("#4CBE99"))
+    val adLabelTextStyle: NativeTextStyle = NativeTextStyle(10f, Color.WHITE, Color.parseColor("#FFCC66")),
+    val headlineTextStyle: NativeTextStyle = NativeTextStyle(13f, Color.BLACK),
+    val advertiserTextStyle: NativeTextStyle = NativeTextStyle(11f, Color.BLACK),
+    val bodyTextStyle: NativeTextStyle = NativeTextStyle(10f, Color.GRAY),
+    val storeTextStyle: NativeTextStyle = NativeTextStyle(10f, Color.BLACK),
+    val priceTextStyle: NativeTextStyle = NativeTextStyle(10f, Color.BLACK),
+    val callToActionStyle: NativeTextStyle = NativeTextStyle(12f, Color.BLACK, Color.parseColor("#FFFFFF"))
 ) {
   companion object {
 

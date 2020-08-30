@@ -56,7 +56,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
                         android:ellipsize="end"
-                        android:maxLines="1"
+                        android:maxLines="2"
                         android:maxLength="90"
                         android:textColor="#000000"
                         android:textSize="8dp"/>
@@ -112,13 +112,15 @@
 
                             <Button
                                 android:id="@+id/ad_call_to_action"
+                                android:paddingLeft="4dp"
+                                android:paddingRight="4dp"
                                 android:layout_width="wrap_content"
                                 android:layout_height="26dp"
-                                android:background="@drawable/round_radius_4_5a7bef"
+                                android:background="@drawable/round_radius_4_ffffff"
                                 android:gravity="center"
                                 android:maxLines="1"
                                 android:ellipsize="end"
-                                android:textColor="@android:color/white"
+                                android:textColor="@android:color/black"
                                 android:textSize="10dp"
                                 android:textStyle="bold" />
                         </LinearLayout>

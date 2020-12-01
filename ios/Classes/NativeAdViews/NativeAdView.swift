@@ -38,20 +38,20 @@ class NativeAdView: GADUnifiedNativeAdView {
     
     let adIconView: UIImageView = {
         let imageView = UIImageView()
-        imageView.autoSetDimensions(to: CGSize(width: 40, height: 40))
+        imageView.autoSetDimensions(to: CGSize(width: 88, height: 88))
         return imageView
     }()
     
     let adHeadLineLbl: UILabel = {
         let label = UILabel()
-        label.font = UIFont.boldSystemFont(ofSize: 13)
+        label.font = UIFont.boldSystemFont(ofSize: 11)
         label.numberOfLines = 1
         return label
     }()
     
     let adAdvertiserLbl: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 11)
+        label.font = UIFont.systemFont(ofSize: 9)
         label.numberOfLines = 1
         return label
     }()
@@ -60,14 +60,14 @@ class NativeAdView: GADUnifiedNativeAdView {
     
     let adBodyLbl: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 10)
+        label.font = UIFont.systemFont(ofSize: 9)
         label.numberOfLines = 2
         return label
     }()
     
     let adPriceLbl: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 10)
+        label.font = UIFont.systemFont(ofSize: 9)
         label.numberOfLines = 1
         label.textAlignment = .right
         return label
@@ -75,7 +75,7 @@ class NativeAdView: GADUnifiedNativeAdView {
     
     let adStoreLbl: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 10)
+        label.font = UIFont.systemFont(ofSize: 9)
         label.numberOfLines = 1
         label.textAlignment = .right
         return label
@@ -193,7 +193,7 @@ private extension NativeAdView {
     func setupFullLayout() {
         adBodyLbl.numberOfLines = 2
         
-        let infoLayout = StackLayout().spacing(5).children([
+        let infoLayout = StackLayout().children([
             adIconView,
             StackLayout().direction(.vertical).children([
                 adHeadLineLbl,
@@ -270,33 +270,28 @@ private extension NativeAdView {
         contentView.autoPinEdgesToSuperviewEdges(with: .zero, excludingEdge: .top)
         contentView.autoPinEdge(.top, to: .bottom, of: topView, withOffset: 0)
 
-        let bodyLayout = StackLayout().spacing(6).direction(.vertical).children([
-            StackLayout().alignItems(UIStackView.Alignment.leading).direction(.horizontal).children([
+        let bodyLayout = StackLayout().spacing(4).alignItems(UIStackView.Alignment.fill).direction(.vertical).children([
                 adHeadLineLbl,
-            ]),
-            StackLayout().alignItems(UIStackView.Alignment.leading).direction(.horizontal).children([
                 adBodyLbl,
-            ]),
-            UIView(),
-            StackLayout().direction(.horizontal).children([
-                StackLayout().alignItems(UIStackView.Alignment.center).direction(.vertical).children([
-                    UIView(),
-                    StackLayout().spacing(6).alignItems(UIStackView.Alignment.leading).direction(.horizontal).children([
-                        adLabelView,
-                        StackLayout().spacing(0).direction(.vertical).children([
-                            adAdvertiserLbl,
-                            adRatingView,
-                            UIView()
+                UIView(),
+                StackLayout().alignItems(UIStackView.Alignment.trailing).direction(.horizontal).children([
+                    StackLayout().alignItems(UIStackView.Alignment.center).direction(.vertical).children([
+                        StackLayout().spacing(6).alignItems(UIStackView.Alignment.leading).direction(.horizontal).children([
+                            adLabelView,
+                            StackLayout().spacing(0).direction(.vertical).children([
+                                adAdvertiserLbl,
+                                adRatingView,
+                                UIView()
+                            ]),
                         ]),
+                        UIView(),
                     ]),
                     UIView(),
+                    callToActionBtn,
                 ]),
-                UIView(),
-                callToActionBtn,
-            ]),
         ])
 
-        let layout = StackLayout().spacing(10).alignItems(UIStackView.Alignment.leading).direction(.horizontal).children([
+        let layout = StackLayout().spacing(12).alignItems(UIStackView.Alignment.leading).direction(.horizontal).children([
             adIconView,
             bodyLayout,
         ])

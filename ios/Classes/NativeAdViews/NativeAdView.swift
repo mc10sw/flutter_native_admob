@@ -290,6 +290,7 @@ private extension NativeAdView {
                     callToActionBtn,
                 ]),
         ])
+        bodyLayout.distribution = .fillProportionally
 
         let layout = StackLayout().spacing(12).alignItems(UIStackView.Alignment.leading).direction(.horizontal).children([
             adIconView,
